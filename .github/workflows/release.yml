@@ -31,7 +31,7 @@ jobs:
           cargo build --release --target aarch64-apple-darwin
           mkdir cfn-guard-v2-${{ matrix.os }}
           cargo install cargo-lipo
-          lipo -create target/x86_64-apple-darwin/release/cfn-guard target/aarch64-apple-darwin/release/cfn-guard -output ./cfn-guard-v2-${{ matrix.os }}/cfn-guard
+          lipo -create ./target/x86_64-apple-darwin/release/cfn-guard ./target/aarch64-apple-darwin/release/cfn-guard -output ./cfn-guard-v2-${{ matrix.os }}/cfn-guard
           cp README.md ./cfn-guard-v2-${{ matrix.os }}/
           tar czvf ./cfn-guard-v2-${{ matrix.os }}.tar.gz ./cfn-guard-v2-${{ matrix.os }}
         linux: |
